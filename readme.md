@@ -77,20 +77,18 @@ You may need an appropriate loader to handle this file type, currently no loader
 ## 实验依赖版本  
 
 ```bash
-css-loader@3.4.2
-style-loader@1.1.3
-less-loader@5.0.0
-less@3.11.1
+npm i webpack@4.41.6  
+npm i webpack-cli@3.3.11 
 ```
 
 ## webpack.config.js  
 
-1.webpck配置文件  
+1.webpck最基本配置文件（entry和output）  
 
 1.1手动在根目录下创建webpack.config.js文件  
-1.2入口文件中引入css、less、html、src等文件  
-1.3了解node的commonJS模块化规范
-1.4运行指令webpack进行打包  
+<!-- 1.2入口文件中引入css、less、html、src等文件   -->
+1.2了解node的commonJS模块化规范
+1.3运行指令webpack进行打包  
 
 未引入其它文件前通过指令webpack打包，配置仅entry、output、mode  
 
@@ -106,7 +104,7 @@ Entrypoint main = built.js
 [./src/index.js] 170 bytes {main} [built]
 ```
 
-初始化webpack.config.js
+初始化的webpack.config.js
 
 ```js
 const {resolve} = require('path')
@@ -126,9 +124,14 @@ module.exports = {
 }
 ```
 
-引入css文件,配置添加module(loader),webpack.confg.js配置
+下一p将引入css文件,配置添加module(loader),webpack.confg.js配置
 
 ```js
 
 ```
 
+## 总结  
+
+1. 之前是通过带参数（webpack ./src/index.js -o ./build/built.js --mode=development）的webpack指令编译打包文件，这P是建立webpack配置文件，用不带参数的webpack指令打包文件  
+
+2. 在配置文件简单配置entry和output达到最基本的webpack配置  
