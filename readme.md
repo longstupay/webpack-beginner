@@ -83,6 +83,10 @@ less-loader@5.0.0
 less@3.11.1
 ```
 
+>
+**loader**  
+webpack 只能理解 JavaScript 和 JSON 文件，这是 webpack 开箱可用的自带能力。loader 让 webpack 能够去处理其他类型的文件，并将它们转换为有效 模块，以供应用程序使用，以及被添加到依赖图中。
+
 ## webpack.config.js  
 
 1.webpck配置文件  
@@ -92,21 +96,21 @@ less@3.11.1
 1.3了解node的commonJS模块化规范
 1.4运行指令webpack进行打包  
 
-未引入其它文件前通过指令webpack打包，配置仅entry、output、mode  
+入口文件引入其它不能识别的文件前通过指令webpack打包，未配置module（loader）  
 
-```bash
-F:\每日学习\末学\webpack>webpack
-Hash: 3b01269002a37090296e
-Version: webpack 4.41.6
-Time: 57ms
-Built at: 12/22/2021 2:54:50 PM
-   Asset      Size  Chunks             Chunk Names
-built.js  3.96 KiB    main  [emitted]  main
-Entrypoint main = built.js
-[./src/index.js] 170 bytes {main} [built]
+```js
+//index.js
+import style from './index.css'
+
+const a = (a, b)=>{
+    console.log(a+b)
+}
+
+a(3, 5)
+console.log(style)
 ```
 
-初始化webpack.config.js
+未配置loader的webpack.config.js
 
 ```js
 const {resolve} = require('path')
@@ -126,9 +130,82 @@ module.exports = {
 }
 ```
 
-引入css文件,配置添加module(loader),webpack.confg.js配置
+可以看到如果未配置loader会报错
 
-```js
+```bash
+F:\每日学习\末学\webpack>webpack
+Hash: 3d3cd9e85ddb5c1b1e04
+Version: webpack 4.41.6
+Time: 69ms
+Built at: 12/22/2021 3:37:53 PM
+   Asset      Size  Chunks             Chunk Names
+built.js  4.87 KiB    main  [emitted]  main
+Entrypoint main = built.js
+[./src/index.css] 298 bytes {main} [built] [failed] [1 error]
+[./src/index.js] 170 bytes {main} [built]
 
+ERROR in ./src/index.css 1:10
+Module parse failed: Unexpected token (1:10)
+You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders
+> html,body {
+|     background-color: aquamarine;
+|     margin: 0;
+ @ ./src/index.js 2:0-31 11:12-17
 ```
 
+此时配置添加module(loader)后webpack.confg.js配置
+
+```js
+//webpack.config.js
+const {resolve} = require('path')
+
+//五个核心配置
+module.exports = {
+    entry:'./src/index.js',
+    //输出
+    output:{
+        filename:'built.js',
+        //输出路径
+        path: resolve(__dirname, 'build')
+    },
+    // loader配置
+    module:{
+        rules:[{
+            //详细配置
+            test:/\.css$/,
+            use:[
+                'style-loader',
+                'css-loader'
+            ]
+        
+        }
+    ]
+
+    },
+    // 打包模式
+    mode:'development'
+    // mode:'prodution'
+}
+```
+
+配置后，运行webpack指令，发现css文件已经被打包
+
+```bash
+F:\每日学习\末学\webpack>webpack
+Hash: da9702aeddf6e328d116
+Version: webpack 4.41.6
+Time: 279ms
+Built at: 12/22/2021 3:46:42 PM
+   Asset      Size  Chunks             Chunk Names
+built.js  16.6 KiB    main  [emitted]  main
+Entrypoint main = built.js
+[./node_modules/css-loader/dist/cjs.js!./src/index.css] 324 bytes {main} [built]
+[./src/index.css] 561 bytes {main} [built]
+[./src/index.js] 170 bytes {main} [built]
+    + 2 hidden modules
+```
+
+## 总结  
+
+1. 只有详细配置好webpack.config.js文件webpack才能编译其它文件，如css\html\img\等，而这都是为了构建项目的依赖关系  
+2. webpack就是把项目中所需的每一个模块组合成一个或多个 bundles  
