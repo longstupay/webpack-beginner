@@ -85,7 +85,7 @@ less@3.11.1
 
 ## webpack.config.js  
 
-1.webpck配置文件按  
+1.webpck配置文件  
 
 1.1手动在根目录下创建webpack.config.js文件  
 1.2入口文件中引入css、less、html、src等文件  
