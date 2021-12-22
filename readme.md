@@ -1,5 +1,6 @@
 # webpack4入门  
 
+<!-- 
 ## 初体验  
 
 ```js
@@ -71,4 +72,18 @@ You may need an appropriate loader to handle this file type, currently no loader
 1. webpack可以将ES6模块编译打包成一个浏览器能识别的模块化  
 2. 生产环境将会压缩打包后的代码  
 3. webpack打包编译时本身不能识别除了js以外的其它文件  
-4. 了解本章知识（entery和output）后,理解总结（3），借此引入核心概念**loader**  
+4. 了解本章知识（entery和output）后,理解总结（3），借此引入核心概念**loader**   -->
+
+## 实验依赖版本  
+
+```bash
+less-loader@5.0.0
+less@3.11.1
+```
+
+## webpack.config.js  
+
+1.webpck配置文件按  
+
+1.1手动在根目录下创建webpack.config.js文件  
+1.2入口文件中引入css、less、html、src等文件  
