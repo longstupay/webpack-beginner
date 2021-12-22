@@ -23,11 +23,11 @@ module.exports = {
     // ]
 
     // },
-    //plugind配置
+    // plugind配置
     // plugins:{
 
     // },
-    //打包模式
+    // 打包模式
     mode:'development'
     // mode:'prodution'
 }
