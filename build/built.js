@@ -86,37 +86,14 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./data.json":
-/*!*******************!*\
-  !*** ./data.json ***!
-  \*******************/
-/*! exports provided: name, number, default */
-/***/ (function(module) {
-
-eval("module.exports = JSON.parse(\"{\\\"name\\\":\\\"lihua\\\",\\\"number\\\":122222}\");\n\n//# sourceURL=webpack:///./data.json?");
-
-/***/ }),
-
-/***/ "./src/index.css":
-/*!***********************!*\
-  !*** ./src/index.css ***!
-  \***********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("throw new Error(\"Module parse failed: Unexpected token (1:5)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n> body {\\n|     background-color: aquamarine;\\n| }\");\n\n//# sourceURL=webpack:///./src/index.css?");
-
-/***/ }),
-
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _data_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../data.json */ \"./data.json\");\nvar _data_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../data.json */ \"./data.json\", 1);\n/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.css */ \"./src/index.css\");\n/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_index_css__WEBPACK_IMPORTED_MODULE_1__);\n\r\n\r\n\r\nconst a = (a, b)=>{\r\n    console.log(a+b)\r\n}\r\n\r\na(3, 5)\r\n\r\nconsole.log(_data_json__WEBPACK_IMPORTED_MODULE_0__)\r\nconsole.log(_index_css__WEBPACK_IMPORTED_MODULE_1___default.a)\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("// import data from '../data.json'\r\n// import style from './index.css'\r\n\r\nconst a = (a, b)=>{\r\n    console.log(a+b)\r\n}\r\n\r\na(3, 5)\r\n\r\n// console.log(data)\r\n// console.log(style)\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 

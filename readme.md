@@ -77,6 +77,8 @@ You may need an appropriate loader to handle this file type, currently no loader
 ## 实验依赖版本  
 
 ```bash
+css-loader@3.4.2
+style-loader@1.1.3
 less-loader@5.0.0
 less@3.11.1
 ```
@@ -87,3 +89,46 @@ less@3.11.1
 
 1.1手动在根目录下创建webpack.config.js文件  
 1.2入口文件中引入css、less、html、src等文件  
+1.3了解node的commonJS模块化规范
+1.4运行指令webpack进行打包  
+
+未引入其它文件前通过指令webpack打包，配置仅entry、output、mode  
+
+```bash
+F:\每日学习\末学\webpack>webpack
+Hash: 3b01269002a37090296e
+Version: webpack 4.41.6
+Time: 57ms
+Built at: 12/22/2021 2:54:50 PM
+   Asset      Size  Chunks             Chunk Names
+built.js  3.96 KiB    main  [emitted]  main
+Entrypoint main = built.js
+[./src/index.js] 170 bytes {main} [built]
+```
+
+初始化webpack.config.js
+
+```js
+const {resolve} = require('path')
+
+//五个核心配置
+module.exports = {
+    entry:'./src/index.js',
+    //输出
+    output:{
+        filename:'built.js',
+        //输出路径
+        path: resolve(__dirname, 'build')
+    },
+    //打包模式
+    mode:'development'
+    // mode:'prodution'
+}
+```
+
+引入css文件,配置添加module(loader),webpack.confg.js配置
+
+```js
+
+```
+

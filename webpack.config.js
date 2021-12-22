@@ -5,21 +5,28 @@ module.exports = {
     entry:'./src/index.js',
     //输出
     output:{
-        filenme:'built.js',
+        filename:'built.js',
         //输出路径
         path: resolve(__dirname, 'build')
     },
-    //loader配置
-    module:{
-        reles:[
-            //详细配置
-        ]
+    // loader配置
+    // module:{
+    //     rules:[{
+    //         //详细配置
+    //         test:/\.css$/,
+    //         use:[
+    //             'style-loader',
+    //             'css-loader'
+    //         ]
+        
+    //     }
+    // ]
 
-    },
+    // },
     //plugind配置
-    plugins:{
+    // plugins:{
 
-    },
+    // },
     //打包模式
     mode:'development'
     // mode:'prodution'
