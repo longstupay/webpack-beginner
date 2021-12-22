@@ -90,7 +90,7 @@ npm i webpack-cli@3.3.11
 1.2了解node的commonJS模块化规范
 1.3运行指令webpack进行打包  
 
-未引入其它文件前通过指令webpack打包，配置仅entry、output、mode  
+未引入其它文件前通过指令webpack打包，配置entry、output、mode  
 
 ```bash
 F:\每日学习\末学\webpack>webpack
