@@ -1,3 +1,4 @@
+import './index.css'
 
 const a = (a, b)=>{
     console.log(a+b)
